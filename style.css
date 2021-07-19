@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+/* Progress circle engine, so to speak */
+.circle {
+  font-size: 0;
+  display: inline-block;
+  position: relative;
+  width:300px;
+  height:300px;
+  margin:5rem 2rem;
+  cursor: pointer;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.circle > div {
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+  background: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle>div::before,
+.circle>div::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+}
+
+.circle>div::before {
+  display: inline-block;
+  background: #c06;
+  transform: rotate(180deg);
+}
+
+.circle>div::after {
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: black;
+}
+
+.circle > div.second {
+  transform: rotate(180deg);
+}
+
+.circle:hover > div::before {
+  animation: fifty 0.5s linear 0s 1 normal forwards;
+}
+
+.circle:hover > div.second::before {
+  animation-delay: 0.5s;
+}
+
+@keyframes fifty {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* classes for setting progress bar to specific values */
+.c-20 > div.first::after {
+  transform: rotate(0.2turn);
+}
+
+.c-40 > div.first::after {
+  transform: rotate(0.4turn);
+}
+
+.c-50 > div.first::after {
+  transform: rotate(180deg);
+}
+
+.c-60 > div.first::after {
+  transform: rotate(180deg);
+}
+
+.c-60 > div.second::after{
+  transform: rotate(36deg);
+}
+
+.c-75 > div.first::after {
+  transform: rotate(180deg);
+}
+
+.c-75 > div.second::after {
+  transform: rotate(90deg);
+}
+
+/*Content styles */
+
+.content {
+  top:3%;
+  left:3%;
+  width:94%;
+  height:94%;
+  z-index:3;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border:1px solid #000;
+  border-radius: 50%;
+  position:absolute;
+  background:white;
+  font: italic 3rem Georgia, 'Times New Roman', Times, serif;
+  color: #333;
+}
