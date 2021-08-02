@@ -6,26 +6,30 @@
 
 body {
   text-align: center;
+  background:#333;
 }
+
 /* Progress circle engine, so to speak */
 .circle {
-  font-size: 0;
+  font-size: 0; 
   display: inline-block;
   position: relative;
-  width:300px;
-  height:300px;
+  width:16rem;
+  height:16rem;
+  background: conic-gradient(#0a0 0deg, #ff0 360deg);
   margin:5rem 2rem;
-  cursor: pointer;
-   clip-path: circle(50% at 50% 50%); 
+  border-radius:8rem;
+  border:0.625rem solid black;
 }
 
 .circle > div {
   height: 100%;
   width: 50%;
   display: inline-block;
-  background: black;
   position: relative;
   overflow: hidden;
+  border-radius:0 8rem 8rem 0;
+  transform: scale(1.01);
 }
 
 .circle>div::before,
@@ -34,23 +38,21 @@ body {
   width: 100%;
   height: 100%;
   transform-origin: left;
+  background: #000;
 }
 
 .circle>div::before {
   display: inline-block;
-  background: #c06;
-  transform: rotate(180deg);
 }
 
 .circle>div::after {
   top: 0;
   left: 0;
   position: absolute;
-  background: black;
 }
 
 .circle > div.second {
-  transform: rotate(180deg);
+  transform: rotate(180deg) scale(1.01);;
 }
 
 .circle > div.first::after {
@@ -67,11 +69,11 @@ body {
 
 @keyframes fifty {
   0% {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
 }
 
@@ -115,6 +117,8 @@ body {
   border-radius: 50%;
   position:absolute;
   background:white;
-  font: italic 3rem Georgia, 'Times New Roman', Times, serif;
+  font: 400 3.5rem "Glass Antiqua", Times, serif;
+  line-height:3.5rem;
   color: #333;
+  box-shadow:inset 0 0 5px #333;
 }
