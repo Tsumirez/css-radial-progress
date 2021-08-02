@@ -16,7 +16,7 @@ body {
   height:300px;
   margin:5rem 2rem;
   cursor: pointer;
-  clip-path: circle(50% at 50% 50%);
+   clip-path: circle(50% at 50% 50%); 
 }
 
 .circle > div {
@@ -53,6 +53,10 @@ body {
   transform: rotate(180deg);
 }
 
+.circle > div.first::after {
+  transform:rotate(180deg);
+}
+
 .circle:hover > div::before {
   animation: fifty 0.5s linear 0s 1 normal forwards;
 }
@@ -84,20 +88,16 @@ body {
   transform: rotate(180deg);
 }
 
-.c-60 > div.first::after {
-  transform: rotate(180deg);
-}
-
 .c-60 > div.second::after{
   transform: rotate(36deg);
 }
 
-.c-75 > div.first::after {
-  transform: rotate(180deg);
+.c-75 > div.second::after {
+  transform: rotate(0.25turn);
 }
 
-.c-75 > div.second::after {
-  transform: rotate(90deg);
+.c-90 >div.second::after {
+  transform: rotate(0.4turn);
 }
 
 /*Content styles */
