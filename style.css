@@ -1,3 +1,5 @@
+/* Tsumirez (or/and Zefirez) @ github.com */
+
 * {
   padding: 0;
   margin: 0;
@@ -9,27 +11,29 @@ body {
   background:#333;
 }
 
-/* Progress circle engine, so to speak */
+/* the main styles */
 .circle {
   font-size: 0; 
   display: inline-block;
   position: relative;
   width:16rem;
   height:16rem;
-  background: conic-gradient(#0a0 0deg, #ff0 360deg);
+  /* background: conic-gradient( #44d 0deg, #f09 360deg); */
+  background: conic-gradient( #204 0deg, #09f 360deg);
   margin:5rem 2rem;
   border-radius:8rem;
-  border:0.625rem solid black;
+  border:0.125rem solid black;
+  cursor: pointer;
 }
 
 .circle > div {
-  height: 100%;
-  width: 50%;
+  top:-1px;
+  height: calc(100% + 2px);
+  width: calc(50% + 1px);
   display: inline-block;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   border-radius:0 8rem 8rem 0;
-  transform: scale(1.01);
 }
 
 .circle>div::before,
@@ -38,7 +42,7 @@ body {
   width: 100%;
   height: 100%;
   transform-origin: left;
-  background: #000;
+  background: #111;
 }
 
 .circle>div::before {
@@ -46,13 +50,13 @@ body {
 }
 
 .circle>div::after {
-  top: 0;
   left: 0;
   position: absolute;
 }
 
 .circle > div.second {
-  transform: rotate(180deg) scale(1.01);;
+  left:-1px;
+  transform: rotate(180deg);
 }
 
 .circle > div.first::after {
@@ -105,20 +109,30 @@ body {
 /*Content styles */
 
 .content {
-  top:3%;
-  left:3%;
-  width:94%;
-  height:94%;
+  top:2%;
+  left:2%;
   z-index:3;
+  width:96%;
+  height:96%;
+  position:absolute;
+
   display:flex;
   justify-content: center;
   align-items: center;
-  border:1px solid #000;
+
+  border:0.125rem solid #000;
   border-radius: 50%;
-  position:absolute;
-  background:white;
-  font: 400 3.5rem "Glass Antiqua", Times, serif;
-  line-height:3.5rem;
-  color: #333;
-  box-shadow:inset 0 0 5px #333;
+
+  color: #fff;
+  background:#333;
+  font: 400 3.5rem "Poiret One", Times, serif;
+}
+
+/* content hover effects */
+.content:hover {
+ background:#111;
+}
+
+.content:hover > span {
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.4);
 }
