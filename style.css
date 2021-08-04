@@ -8,36 +8,36 @@
 
 body {
   text-align: center;
-  background:#333;
+  background: #333;
 }
 
 /* the main styles */
 .circle {
-  font-size: 0; 
+  font-size: 0;
   display: inline-block;
   position: relative;
-  width:16rem;
-  height:16rem;
+  width: 16rem;
+  height: 16rem;
   /* background: conic-gradient( #44d 0deg, #f09 360deg); */
-  background: conic-gradient( #204 0deg, #09f 360deg);
-  margin:5rem 2rem;
-  border-radius:8rem;
-  border:0.125rem solid black;
+  background: conic-gradient(#406 0deg, #09f 360deg);
+  margin: 5rem 2rem;
+  border-radius: 8rem;
+  border: 0.125rem solid black;
   cursor: pointer;
 }
 
 .circle > div {
-  top:-1px;
+  top: -1px;
   height: calc(100% + 2px);
   width: calc(50% + 1px);
   display: inline-block;
   position: absolute;
   overflow: hidden;
-  border-radius:0 8rem 8rem 0;
+  border-radius: 0 8rem 8rem 0;
 }
 
-.circle>div::before,
-.circle>div::after {
+.circle > div::before,
+.circle > div::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -45,22 +45,23 @@ body {
   background: #111;
 }
 
-.circle>div::before {
+.circle > div::before {
   display: inline-block;
 }
 
-.circle>div::after {
+.circle > div::after {
   left: 0;
   position: absolute;
 }
 
 .circle > div.second {
-  left:-1px;
+  left: -1px;
   transform: rotate(180deg);
+  clip-path:circle(8rem at 0 50%)
 }
 
 .circle > div.first::after {
-  transform:rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .circle:hover > div::before {
@@ -81,6 +82,34 @@ body {
   }
 }
 
+/*Content styles */
+
+.content {
+  top: 2%;
+  left: 2%;
+  z-index: 3;
+  width: 96%;
+  height: 96%;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.125rem solid #000;
+  border-radius: 50%;
+
+  color: #fff;
+  background: #333;
+  font: 400 3.5rem "Poiret One", Times, serif;
+}
+
+/* content hover effects */
+.content:hover {
+  background: #111;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
+}
+
 /* classes for setting progress bar to specific values */
 .c-20 > div.first::after {
   transform: rotate(0.2turn);
@@ -91,10 +120,10 @@ body {
 }
 
 .c-50 > div.first::after {
-  transform: rotate(180deg);
+  /* is the default. no need to set anything */
 }
 
-.c-60 > div.second::after{
+.c-60 > div.second::after {
   transform: rotate(36deg);
 }
 
@@ -102,37 +131,10 @@ body {
   transform: rotate(0.25turn);
 }
 
-.c-90 >div.second::after {
+.c-90 > div.second::after {
   transform: rotate(0.4turn);
 }
 
-/*Content styles */
-
-.content {
-  top:2%;
-  left:2%;
-  z-index:3;
-  width:96%;
-  height:96%;
-  position:absolute;
-
-  display:flex;
-  justify-content: center;
-  align-items: center;
-
-  border:0.125rem solid #000;
-  border-radius: 50%;
-
-  color: #fff;
-  background:#333;
-  font: 400 3.5rem "Poiret One", Times, serif;
-}
-
-/* content hover effects */
-.content:hover {
- background:#111;
-}
-
-.content:hover > span {
-  text-shadow: 1px 1px 3px rgba(255,255,255,0.4);
+.c-100 > div.second::after {
+  transform: rotate(0.5turn);
 }
