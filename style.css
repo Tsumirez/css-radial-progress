@@ -57,7 +57,7 @@ body {
 .circle > div.second {
   left: -1px;
   transform: rotate(180deg);
-  clip-path:circle(8rem at 0 50%)
+  /* clip-path:circle(8rem at 0 50%) */
 }
 
 .circle > div.first::after {
