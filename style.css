@@ -47,6 +47,7 @@ body {
 
 .circle > div::before {
   display: inline-block;
+  transition: transform .5s linear;
 }
 
 .circle > div::after {
@@ -65,11 +66,20 @@ body {
 }
 
 .circle:hover > div::before {
-  animation: fifty 0.5s linear 0s 1 normal forwards;
+  /* animation: fifty 0.5s linear 0s 1 normal forwards; */
+  transform: rotate(0.5turn);
 }
 
 .circle:hover > div.second::before {
-  animation-delay: 0.5s;
+  transition-delay: .5s;
+}
+
+.circle:not(:hover) > div.second::before {
+  transition-delay: 0s;
+}
+
+.circle:not(:hover) > div.first::before {
+  transition-delay: .5s;
 }
 
 @keyframes fifty {
