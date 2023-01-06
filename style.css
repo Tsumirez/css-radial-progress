@@ -9,6 +9,12 @@
 body {
   text-align: center;
   background: #333;
+
+  --circle-width:16rem;
+}
+
+body > * {
+  margin: 5rem 2rem;
 }
 
 /* the main styles */
@@ -20,7 +26,6 @@ body {
   height: 16rem;
   /* background: conic-gradient( #44d 0deg, #f09 360deg); */
   background: conic-gradient(#406 0deg, #09f 360deg);
-  margin: 5rem 2rem;
   border-radius: 8rem;
   border: 0.125rem solid black;
   cursor: pointer;
@@ -147,4 +152,110 @@ body {
 
 .c-100 > div.second::after {
   transform: rotate(0.5turn);
+}
+
+/* div.ex {
+  height: 16rem;
+  margin: 1rem auto;
+  width: 16rem;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  border:2px solid black;
+  background: radial-gradient(circle at center, #333 0%, #333 65%, #000 66%, transparent 67%), 
+  conic-gradient(#406 0deg, #2045b0 180deg,#09f 360deg);
+  transition: background-image 1s steps(2,end);
+}
+
+div.ex::before, div.ex::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-width: 2px 2px 2px 0;
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  transform-origin: left;
+  inset: -2px -2px -2px 50%;
+  background: radial-gradient(circle at 0 center, transparent 0%, transparent 65%, #000 66%, #111 67%);
+}
+
+div.ex::before {
+  transition:rotate 1.5s linear;
+}
+
+div.ex:hover::before {
+  rotate:270deg;
+}
+
+.ex::after {
+  rotate:180deg;
+}
+
+.ex75:hover::after {
+  animation: ex75 0s linear 1s forwards;
+}
+
+.ex75:not(:hover)::after {
+  animation: ex75-back 0s linear 1s forwards;
+}
+
+@keyframes ex75 {
+   0% {}
+   100% {
+    rotate:0deg;
+    background: radial-gradient(circle at 0 center, #333 0%, #333 65%, #000 66%, transparent 67%), 
+    conic-gradient(from 0deg at 0 50%,#406, #2045b0 180deg,#09f 360deg);
+   }
+}
+
+@keyframes ex75-back {
+  0% {}
+  100% {
+    rotate:180deg;
+    background: radial-gradient(circle at 0 center, transparent 0%, transparent 65%, #000 66%, #111 67%);
+  }
+} */
+
+.radial-progress-svg {
+  width: var(--circle-width);
+  stroke-dasharray: 314;
+  background: conic-gradient(#406, #2045b0 180deg,#09f 360deg);
+  border-radius:50%;
+  outline: #333 solid 1px;
+  --progress: .6;
+  display: inline-block;
+}
+
+.radial-progress-svg circle {
+  fill:transparent;
+  stroke: black;
+  stroke-width: 2;
+}
+
+.radial-progress-svg circle:nth-of-type(2) {
+  fill: #333;
+  stroke-width: 1;
+}
+
+.radial-progress-svg path {
+  stroke-width:7;
+  transition: stroke-dashoffset 1s;
+}
+
+svg.radial-progress-svg:hover path{
+  stroke-dashoffset: calc(314px * var(--progress));
+}
+
+svg.radial-progress-svg:hover circle:nth-of-type(2) {
+  fill: #111;
+}
+
+.radial-progress-svg h2 {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font: 400 1.875rem "Poiret One", Times, serif;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
 }
