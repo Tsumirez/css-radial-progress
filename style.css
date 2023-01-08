@@ -10,10 +10,10 @@ body {
   text-align: center;
   background: #333;
 
-  --circle-width:16rem;
+  --circle-width: 16rem;
 }
 
-body > * {
+body>* {
   margin: 5rem 2rem;
 }
 
@@ -31,7 +31,7 @@ body > * {
   cursor: pointer;
 }
 
-.circle > div {
+.circle>div {
   top: -1px;
   height: calc(100% + 2px);
   width: calc(50% + 1px);
@@ -41,8 +41,8 @@ body > * {
   border-radius: 0 8rem 8rem 0;
 }
 
-.circle > div::before,
-.circle > div::after {
+.circle>div::before,
+.circle>div::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -50,40 +50,40 @@ body > * {
   background: #111;
 }
 
-.circle > div::before {
+.circle>div::before {
   display: inline-block;
   transition: transform .5s linear;
 }
 
-.circle > div::after {
+.circle>div::after {
   left: 0;
   position: absolute;
 }
 
-.circle > div.second {
+.circle>div.second {
   left: -1px;
   transform: rotate(180deg);
   /* clip-path:circle(8rem at 0 50%) */
 }
 
-.circle > div.first::after {
+.circle>div.first::after {
   transform: rotate(180deg);
 }
 
-.circle:hover > div::before {
+.circle:hover>div::before {
   /* animation: fifty 0.5s linear 0s 1 normal forwards; */
   transform: rotate(0.5turn);
 }
 
-.circle:hover > div.second::before {
+.circle:hover>div.second::before {
   transition-delay: .5s;
 }
 
-.circle:not(:hover) > div.second::before {
+.circle:not(:hover)>div.second::before {
   transition-delay: 0s;
 }
 
-.circle:not(:hover) > div.first::before {
+.circle:not(:hover)>div.first::before {
   transition-delay: .5s;
 }
 
@@ -126,31 +126,31 @@ body > * {
 }
 
 /* classes for setting progress bar to specific values */
-.c-20 > div.first::after {
+.c-20>div.first::after {
   transform: rotate(0.2turn);
 }
 
-.c-40 > div.first::after {
+.c-40>div.first::after {
   transform: rotate(0.4turn);
 }
 
-.c-50 > div.first::after {
+.c-50>div.first::after {
   /* is the default. no need to set anything */
 }
 
-.c-60 > div.second::after {
+.c-60>div.second::after {
   transform: rotate(36deg);
 }
 
-.c-75 > div.second::after {
+.c-75>div.second::after {
   transform: rotate(0.25turn);
 }
 
-.c-90 > div.second::after {
+.c-90>div.second::after {
   transform: rotate(0.4turn);
 }
 
-.c-100 > div.second::after {
+.c-100>div.second::after {
   transform: rotate(0.5turn);
 }
 
@@ -218,36 +218,34 @@ div.ex:hover::before {
 
 .radial-progress-svg {
   width: var(--circle-width);
-  stroke-dasharray: 314;
-  background: conic-gradient(#406, #2045b0 180deg,#09f 360deg);
-  border-radius:50%;
-  outline: #333 solid 1px;
-  --progress: .6;
+  stroke-dasharray: 314.17;
+  border-radius: 50%;
+  --progress: .9;
   display: inline-block;
+  margin:5rem 2rem;
 }
 
-.radial-progress-svg circle {
-  fill:transparent;
-  stroke: black;
-  stroke-width: 2;
+.radial-progress-svg div {
+  height: 100%;
+  background: conic-gradient(#d06, #ee3 180deg, #0f9 360deg);
 }
 
-.radial-progress-svg circle:nth-of-type(2) {
-  fill: #333;
-  stroke-width: 1;
-}
-
-.radial-progress-svg path {
-  stroke-width:7;
+.radial-progress-svg path.progress-bar {
+  stroke-width: 10;
+  stroke: #111;
   transition: stroke-dashoffset 1s;
 }
 
-svg.radial-progress-svg:hover path{
+.radial-progress-svg path {
+  fill: transparent;
+}
+
+.radial-progress-svg:hover path.progress-bar {
   stroke-dashoffset: calc(314px * var(--progress));
 }
 
-svg.radial-progress-svg:hover circle:nth-of-type(2) {
-  fill: #111;
+.radial-progress-svg:hover {
+  background-color: #222;
 }
 
 .radial-progress-svg h2 {
